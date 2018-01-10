@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- vue renderer
+    template -> pre complie
+    vue scope 
+    占位符 正则 实时编译 node
+    v-model 双向绑定-->
+    <div id="app">
+        <h2>{{title}}</h2>
+        <input v-model="name">
+        <h1>{{name}}</h1>
+        <button v-on:click="clickMe">click me!</button>
+    </div>
+    <!-- <script src="https://cdn.bootcss.com/vue/2.5.13/vue.min.js"></script> -->
+    <script src="./observer.js"></script>
+    <script src="./watcher.js"></script>
+    <script src="./compile.js"></script>
+    <script src="./vue.js"></script>
+<script>
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            title:"Helloworld",
+            name:"canfoo"
+        },
+        methods: {
+            clickMe(){
+                this.title = "你好!";
+            }
+        },
+        mounted() {
+            setTimeout(() => {
+                this.title = "至尊宝";
+            },1000)
+        }
+    })
+</script>
+</body>
+</html>
